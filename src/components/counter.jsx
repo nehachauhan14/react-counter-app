@@ -9,7 +9,7 @@
     //    console.log('In constructor' , this);
     // }
     state ={
-        value:this.props.value,
+        value:this.props.counter.value,
         ImageUrl : "https://picsum.photos/100/50/?random",
     };
 
@@ -27,7 +27,6 @@
     }
 
     handleIncrement = (product) => {
-        console.log(product.id);
         this.setState({value : this.state.value+1})
     }
 
@@ -50,7 +49,7 @@
         return (
             
             <div style={{margin:10}}>
-                 <h4>Title #{this.props.id}</h4>
+                 <h4>Title #{this.props.counter.id}</h4>
                 <img src={this.state.ImageUrl} alt=""/>
                 <span style={this.styles} className={this.getBadgeClasses()}>{this.formatCount()}</span>
                 <button 
@@ -58,8 +57,8 @@
                     className="btn btn-secondary btn-sm m-2">Increment
                 </button>
                 <button
-                    onClick={this.props.onDelete}
-                    className="btn btn-danger btn-sm"> Decrement 
+                    onClick={()=>this.props.onDelete(this.props.counter.id)}
+                    className="btn btn-danger btn-sm"> Delete
                 </button>
             </div>
         );
