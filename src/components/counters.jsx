@@ -14,6 +14,7 @@ class Counters extends Component{
 
     handleDelete = ()=>{
         console.log("Delete was clicked!");
+        this.
     }
 
     render(){
